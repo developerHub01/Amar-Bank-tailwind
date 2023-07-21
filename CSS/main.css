@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn{
+    @apply bg-color-secondary px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200;
+}
+.cardBtn{
+    @apply w-full px-9 py-3 bg-color-primary-dark rounded-md capitalize font-bold hover:bg-color-secondary ease-in duration-200
+}
+.title{
+    @apply text-3xl md:text-4xl font-bold leading-snug mb-4 capitalize;
+}
+.featuresCard{
+    @apply border-2 border-solid border-color-gray text-center py-20 px-5 rounded-2xl cursor-pointer hover:bg-color-primary-dark ease-in duration-200;
+}
+.blob1{
+    @apply w-80 h-80 bg-color-blob rounded-full absolute top-0 -left-5 -z-10 blur-2xl opacity-30 overflow-hidden pointer-events-none;
+}
+.blob2{
+    @apply w-80 h-80 bg-color-secondary rounded-full absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden pointer-events-none;
+}
+
+.user-img-wrapper > *:hover,
+.user-img-wrapper .active{
+    transform: scale(1.2);
+    transition: all 0.3s ease-in;
+    border: 2px solid #ff7d3b;
+}
+.user-text.active{
+    display: block;
+    animation: moveTopAnim 0.5s linear forwards;
+}
+@keyframes moveTopAnim {
+    0%{
+        margin-top: 20%;
+        opacity: 0;
+    }80%{
+        margin-top: 5%;
+        opacity: 0.2;
+    }
+    100%{
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+.card{
+    perspective: 1000px;
+}
+.front,
+.back{
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: all 0.4s ease;
+}
+.back{
+    transform: rotateY(180deg);
+}
+.card.active .front{
+    transform: rotateY(-180deg);
+}
+.card.active .back{
+    transform: rotateY(0);
+}
